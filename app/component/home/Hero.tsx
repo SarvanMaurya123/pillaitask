@@ -2,7 +2,7 @@
 
 import { Search } from "lucide-react";
 import { useState } from "react";
-
+import FloatingSidebar from "./RightSideInfo";
 export default function HeroSection() {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedProgram, setSelectedProgram] = useState('');
@@ -27,7 +27,7 @@ export default function HeroSection() {
     return (
         <>
             {/* hero section start here ....*/}
-
+            <FloatingSidebar />
             <section className="relative h-screen overflow-hidden mt-0">
                 <div className="absolute inset-0 w-full h-full">
                     <video autoPlay loop muted playsInline className="w-full h-full object-cover">
