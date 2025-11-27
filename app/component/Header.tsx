@@ -1,10 +1,9 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
-    const [activeMenu, setActiveMenu] = useState(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
@@ -16,9 +15,7 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const toggleMenu = (menuName: any) => {
-        setActiveMenu(activeMenu === menuName ? null : menuName);
-    };
+
 
     return (
         <>
