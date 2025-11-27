@@ -1,10 +1,11 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Menu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [activeMenu, setActiveMenu] = useState(null);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -30,7 +31,7 @@ export default function Navbar() {
                                 <img
                                     src="https://mitwpu.edu.in/uploads/images/MIT-WPU_LOGO.webp"
                                     alt="MitWpu logo"
-                                    className="w-full max-w-[200px] md:w-auto md:max-w-none mx-auto"
+                                    className="md:w-[200px]"
                                 />
                             </a>
                         </div>
@@ -141,16 +142,85 @@ export default function Navbar() {
                                         Media Coverage
                                     </a>
                                 </li>
-                                <li className="px-3">
-                                    <a href="#" className={`hover:text-blue-600 flex items-center gap-1 transition ${scrolled ? 'text-white' : 'text-white'}`}>
-                                        <Menu size={30} />
-                                    </a>
+                                <li className="px-3 cursor-pointer">
+                                    <button onClick={() => setIsMenuOpen(!isMenuOpen)} className={`hover:text-blue-600 cursor-pointer flex items-center gap-1 transition ${scrolled ? 'text-white' : 'text-white'}`}>
+                                        {isMenuOpen ? <X size={30} /> : <Menu size={30} />}
+                                    </button>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </nav>
+
+            {/* Popup Menu */}
+            {isMenuOpen && (
+                <div className="fixed inset-0 bg-black/50 z-50 hidden md:block" onClick={() => setIsMenuOpen(false)}>
+                    <div className="fixed right-0 top-0 z-10 h-full w-[600px] bg-red-500 text-white shadow-2xl overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+                        <div className='grid md:grid-cols-2'>
+                            <div className="p-8 mt-30">
+                                {/* Newsletter Section */}
+                                <div className="mb-12">
+                                    <h2 className="text-2xl font-bold mb-4 tracking-wide">NEWSLETTER</h2>
+                                    <div className="h-px bg-white/40 w-full mb-6"></div>
+                                </div>
+
+                                {/* Testimonial Section */}
+                                <div className="mb-12">
+                                    <h2 className="text-2xl font-bold mb-4 tracking-wide">TESTIMONIAL</h2>
+                                    <div className="h-px bg-white/40 w-full mb-6"></div>
+                                    <a href="#" className="text-white hover:text-white/80 transition-colors duration-300 text-lg">
+                                        Student
+                                    </a>
+                                </div>
+
+                                {/* Contact Us Section */}
+                                <div>
+                                    <h2 className="text-2xl font-bold mb-4 tracking-wide">CONTACT US</h2>
+                                    <div className="h-px bg-white/40 w-full mb-6"></div>
+                                </div>
+                            </div>
+                            {/* Happenings Section */}
+                            <div className="mb-12 p-8 mt-30">
+                                <h2 className="text-2xl font-bold mb-4 tracking-wide">HAPPENINGS</h2>
+                                <div className="h-px bg-white/40 w-full mb-6"></div>
+                                <ul className="space-y-4">
+                                    <li>
+                                        <a href="#" className="text-white hover:text-white/80 transition-colors duration-300 text-lg block">
+                                            News
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" className="text-white hover:text-white/80 transition-colors duration-300 text-lg block">
+                                            Events
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" className="text-white hover:text-white/80 transition-colors duration-300 text-lg block">
+                                            Notices & Announcements
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" className="text-white hover:text-white/80 transition-colors duration-300 text-lg block">
+                                            Image Gallery
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" className="text-white hover:text-white/80 transition-colors duration-300 text-lg block">
+                                            Video Gallery
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" className="text-white hover:text-white/80 transition-colors duration-300 text-lg block">
+                                            Media Coverage
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     );
 }
