@@ -35,7 +35,8 @@ export default function WhatNew() {
 
     return (
         <div className="w-full bg-gray-100 py-16 px-4">
-            <h2 className="text-4xl text-center text-black md:text-5xl font-bold hover:text-[#DA3948]">
+            <h2 className="text-4xl text-center text-black md:text-5xl font-bold
+             hover:text-[#DA3948]">
                 What's New
             </h2>
 

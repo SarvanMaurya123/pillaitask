@@ -33,11 +33,26 @@ export default function Research() {
         },
     ];
     return (<>
-        <div className="w-full bg-gray-100 py-16 px-4">
+        <div className="w-full bg-gray-100 py-20 pt-32 px-4">
             <div className="text-black text-center">
                 <h2 className="text-4xl text-center text-black md:text-5xl font-bold hover:text-[#DA3948] pb-8">Research</h2>
                 <p className="text-xl font-semibold pb-4">Pushing the frontiers of knowledge to create real-world impact.</p>
                 <p className="text-lg mx-20 pb-10">MIT-WPU encourages research in practically every domain, and endeavours to develop human knowledge through insight driven investigations, inventions, and understanding to create solutions for critical world problems. Fostering the spirit of curiosity and building world-class research ecosystems.</p>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 ">
+                    <div>
+                        <h3 className="text-4xl text-[#DA3948] font-bold pb-3">5000 +</h3>
+                        <p className="font-bold text-lg">RESEARCH <br />PUBLICATIONS</p>
+                    </div>
+                    <div>
+                        <h3 className="text-4xl text-[#DA3948] font-bold pb-3">400 +</h3>
+                        <p className="font-bold text-lg">PUBLISHED</p>
+                    </div>
+                    <div>
+                        <h3 className="text-4xl text-[#DA3948] font-bold pb-3">164 +</h3>
+                        <p className="font-bold text-lg">GRANTED PATENTS</p>
+                    </div>
+                </div>
             </div>
             <div className="mt-10 px-5 md:px-10">
                 <Swiper

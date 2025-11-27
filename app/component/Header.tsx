@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Menu, Users, GraduationCap, Building2, FileCheck, Briefcase, UserCircle, Leaf, BookOpen, FileText, Globe, Lightbulb, Newspaper } from 'lucide-react';
+import { Menu } from 'lucide-react';
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -19,42 +19,24 @@ export default function Navbar() {
         setActiveMenu(activeMenu === menuName ? null : menuName);
     };
 
-    {/* 
-        Menu  info to be added 
-        
-NEWSLETTER
-TESTIMONIAL
-Student
-CONTACT US
-HAPPENINGS
-News
-Events
-Notices & Announcements
-Image Gallery
-Video Gallery
-Media Coverage
-
-        */}
-
-
     return (
         <>
             <nav className={`fixed top-0 left-0 w-full text-white z-50 transition-all duration-300 ${scrolled ? 'bg-black/70 backdrop-blur-sm shadow-lg' : 'bg-transparent'
                 }`}>
                 <div className="px-4 py-2">
                     <div className="flex items-center justify-between">
-                        <div className="pt-6 pb-6">
-                            <a href='/' className='block'>
+                        <div className="pt-6 pb-6 w-full max-w-[200px] md:w-auto md:max-w-none mx-auto">
+                            <a href="/" className="block">
                                 <img
-                                    width="200"
-                                    height="99"
                                     src="https://mitwpu.edu.in/uploads/images/MIT-WPU_LOGO.webp"
                                     alt="MitWpu logo"
+                                    className="w-full max-w-[200px] md:w-auto md:max-w-none mx-auto"
                                 />
                             </a>
                         </div>
 
-                        <div className="flex flex-col ">
+
+                        <div className="flex flex-col md:block hidden">
                             <ul className="flex items-center text-sm font-medium space-x-1 mb-3.5">
                                 <li className="border-r border-gray-300 pr-3">
                                     <a href="#" className={`hover:text-blue-600 flex items-center gap-1 transition ${scrolled ? 'text-white' : 'text-white'}`}>

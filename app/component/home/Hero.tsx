@@ -10,6 +10,9 @@ import LatestHappenings from "./LatestHappenings";
 import UniversityFeatures from "./UniversityFeatures";
 import WhatNew from "./WhatNew";
 import Research from "./Research";
+import InternationalCollaborations from "./InternationalCollaborations";
+import BestPlacements from "./BestPlacements";
+import TopRec from "./TopRec";
 export default function HeroSection() {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedProgram, setSelectedProgram] = useState('');
@@ -35,15 +38,32 @@ export default function HeroSection() {
         <>
             {/* hero section start here ....*/}
             <FloatingSidebar />
-            <section className="relative h-screen overflow-hidden mt-0">
-                <div className="absolute inset-0 w-full h-full">
-                    <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                        <source src="https://mitwpu.edu.in/uploads/banner/banner_video_desktop.mp4" type="video/mp4" />
-                    </video>
-                    <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/50 to-transparent"></div>
-                </div>
-            </section>
+            <section className="relative h-screen md:h-screen overflow-hidden mt-0">
 
+                <div className="absolute inset-0 w-full h-full">
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover md:object-cover object-center"
+                    >
+                        <source
+                            src="https://mitwpu.edu.in/uploads/banner/banner_video_desktop.mp4"
+                            type="video/mp4"
+                        />
+                    </video>
+
+                    <div className="
+                        absolute inset-0 
+                        bg-black/50 
+                       md:bg-linear-to-r md:from-black/70 md:via-black/50 md:to-transparent
+                    ">
+                    </div>
+                </div>
+                <div className="relative z-10 block md:hidden h-[40vh]"></div>
+
+            </section>
             {/* hero section end here ....*/}
 
 
@@ -170,6 +190,15 @@ export default function HeroSection() {
                         </h3>
                     </div>
                 </div>
+            </section>
+            <section className="w-full">
+                <InternationalCollaborations />
+            </section>
+            <section className="w-full">
+                <BestPlacements />
+            </section>
+            <section className="w-full">
+                <TopRec />
             </section>
             <section className="w-full">
                 <Research />
