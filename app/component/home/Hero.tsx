@@ -3,6 +3,13 @@
 import { Search } from "lucide-react";
 import { useState } from "react";
 import FloatingSidebar from "./RightSideInfo";
+import HistoryLegacy from "./HistoryLegacy";
+import StudentTestimonials from "./StudentTestimonials";
+import LifeMITWPU from "./LifeMIT-WPU";
+import LatestHappenings from "./LatestHappenings";
+import UniversityFeatures from "./UniversityFeatures";
+import WhatNew from "./WhatNew";
+import Research from "./Research";
 export default function HeroSection() {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedProgram, setSelectedProgram] = useState('');
@@ -164,9 +171,28 @@ export default function HeroSection() {
                     </div>
                 </div>
             </section>
-            {/* future ready programme section end here ....*/}
+            <section className="w-full">
+                <Research />
+            </section>
+            <section className="w-full">
+                <UniversityFeatures />
+            </section>
+            <section className="w-full">
+                <WhatNew />
+            </section>
+            <section className="w-full">
+                <LatestHappenings />
+            </section>
+            <section className="w-full">
+                <LifeMITWPU />
+            </section>
+            <section w-full>
+                <StudentTestimonials />
+            </section>
 
-
+            <section className="w-full">
+                <HistoryLegacy />
+            </section>
 
         </>
     );

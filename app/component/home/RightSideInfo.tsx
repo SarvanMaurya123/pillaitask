@@ -26,14 +26,14 @@ export default function FloatingSidebar() {
   };
 
   return (
-    <div className="flex flex-col gap-2 mt-10">
+    <div className="flex flex-col gap-2 -top-3.5">
       {/* Admission Enquiry  here...*/}
 
       <div className="flex items-center justify-center fixed right-0 z-50 top-[0%]">
         <a
           href="#admission"
           aria-label="Admission Enquiry"
-          className="bg-[#2d3561] text-white px-2 py-3 flex items-center justify-center hover:bg-[#3d4571]  duration-300 shadow-lg rounded-tl-sm rounded-bl-sm group mt-11"
+          className="bg-[#2d3561] text-white px-2 py-3 flex items-center justify-center hover:bg-[#3d4571]  duration-300 shadow-lg rounded-tl-sm rounded-bl-sm group mt-2"
           onMouseEnter={() => {
             if (!isMobile) setAdmissionHover(true);
           }}
@@ -97,9 +97,8 @@ export default function FloatingSidebar() {
         >
           <MessageCircle className="w-5 h-5 shrink-0" fill="currentColor" />
           <span
-            className={`ml-3 font-semibold text-sm whitespace-nowrap transition-opacity duration-300 ${
-              whatsappHover ? "opacity-100" : "opacity-0 w-0"
-            }`}
+            className={`ml-3 font-semibold text-sm whitespace-nowrap transition-opacity duration-300 ${whatsappHover ? "opacity-100" : "opacity-0 w-0"
+              }`}
           >
             +91 98765 43210
           </span>
