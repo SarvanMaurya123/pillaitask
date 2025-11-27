@@ -97,8 +97,9 @@ export default function FloatingSidebar() {
         >
           <MessageCircle className="w-5 h-5 shrink-0" fill="currentColor" />
           <span
-            className={`ml-3 font-semibold text-sm whitespace-nowrap transition-opacity duration-300 ${whatsappHover ? "opacity-100" : "opacity-0 w-0"
-              }`}
+            className={`ml-3 font-semibold text-sm whitespace-nowrap transition-opacity duration-300 ${
+              whatsappHover ? "opacity-100" : "opacity-0 w-0"
+            }`}
           >
             +91 98765 43210
           </span>

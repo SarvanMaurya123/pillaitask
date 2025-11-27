@@ -1,13 +1,20 @@
+import submitAdmissionEnquiry from "@/api/admission-form/submitAdmissionEnquiry";
 import AdmissionFormType from "@/app/types/admissionForm";
+import { cn } from "@/lib/utils";
+import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 const AdmissionForm = () => {
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm<AdmissionFormType>();
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const selectedCurrentState = watch("state");
   const selectedProgram = watch("program");
@@ -78,7 +85,18 @@ const AdmissionForm = () => {
   const handleAdmissionSubmit: SubmitHandler<AdmissionFormType> = async (
     data
   ) => {
-    console.log(data);
+    try {
+      setIsSubmitting(true);
+      const response = await submitAdmissionEnquiry(data);
+      console.log("Admission form submitted successfully: ", response);
+      toast.success("Form submitted successfully!");
+    } catch (error: unknown) {
+      console.error("Error submitting admission form: ", error);
+      toast.error("Failed to submit the form. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+      reset();
+    }
   };
 
   return (
@@ -270,8 +288,35 @@ const AdmissionForm = () => {
           )}
         </div>
 
-        <button className="bg-[#BE283C] border my-4 border-[#d62832] text-[15px] uppercase font-medium tracking-[0.5px] rounded-[31px] py-[6px] px-[40px] h-[45px] cursor-pointer hover:bg-[#be283cc7] transition-colors duration-500 w-fit self-center">
-          Submit
+        <button
+          className={cn(
+            "bg-[#BE283C] border inline-flex items-center gap-2 my-4 text-white border-[#d62832] text-[15px] uppercase font-medium tracking-[0.5px] rounded-[31px] py-[6px] px-[40px] h-[45px] cursor-pointer  transition-colors duration-500 w-fit self-center",
+            isSubmitting
+              ? "pointer-events-none opacity-50"
+              : "hover:bg-[#be283cc7]"
+          )}
+        >
+          Submit{" "}
+          {isSubmitting && (
+            <svg
+              className="animate-spin h-5 w-5 text-white"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              />
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+              />
+            </svg>
+          )}
         </button>
       </div>
     </form>
