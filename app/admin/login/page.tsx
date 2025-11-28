@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
-import { EyeCloseSvg, EyeOpenSvg } from "@/public/form/formSvg";
+import { EyeCloseSvg, EyeOpenSvg, LoaderSvg } from "@/public/form/formSvg";
 import submitLogin from "@/api/login/submitLogin";
 import { useRouter } from "next/navigation";
 
@@ -26,11 +26,10 @@ const AdminLoginForm = () => {
   const onSubmit: SubmitHandler<LoginFormType> = async (data) => {
     try {
       setIsSubmitting(true);
-      console.log("Login form submitted:", data);
       const res = await submitLogin(data);
       toast.success(res.message || "Logged in successfully!");
-      router.push("/dashboard");
-    } catch (error) {
+      router.push("/admin/dashboard");
+    } catch (error: unknown) {
       toast.error("Login failed. Try again.");
     } finally {
       setIsSubmitting(false);
@@ -96,27 +95,19 @@ const AdminLoginForm = () => {
             )}
           >
             Login
-            {isSubmitting && (
-              <svg
-                className="animate-spin h-5 w-5 inline-block ml-2 text-white"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                />
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                />
-              </svg>
-            )}
+            {isSubmitting && <LoaderSvg />}
           </button>
+
+          {/* Register Link */}
+          <p className="text-center text-[13px] text-[#555] mt-1">
+            Don&apos;t have an account?{" "}
+            <a
+              href="/admin/register"
+              className="text-[#BE283C] font-semibold hover:underline"
+            >
+              Click here to register
+            </a>
+          </p>
         </div>
       </form>
     </section>

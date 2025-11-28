@@ -1,6 +1,7 @@
 import submitAdmissionEnquiry from "@/api/admission-form/submitAdmissionEnquiry";
 import AdmissionFormType from "@/app/types/admissionForm";
 import { cn } from "@/lib/utils";
+import { LoaderSvg } from "@/public/form/formSvg";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -72,24 +73,13 @@ const AdmissionForm = () => {
     ],
   };
 
-  const programList = [
-    "Computer Science Engineering",
-    "Mechanical Engineering",
-    "Civil Engineering",
-    "Electronics & Telecommunication",
-    "Chemical Engineering",
-    "AI & Machine Learning",
-    "Robotics & Automation",
-  ];
-
   const handleAdmissionSubmit: SubmitHandler<AdmissionFormType> = async (
     data
   ) => {
     try {
       setIsSubmitting(true);
       const response = await submitAdmissionEnquiry(data);
-      console.log("Admission form submitted successfully: ", response);
-      toast.success("Form submitted successfully!");
+      toast.success(response?.message || "Form submitted successfully!");
     } catch (error: unknown) {
       console.error("Error submitting admission form: ", error);
       toast.error("Failed to submit the form. Please try again.");
@@ -102,9 +92,9 @@ const AdmissionForm = () => {
   return (
     <form
       onSubmit={handleSubmit(handleAdmissionSubmit)}
-      className="rounded-2xl max-h-screen overflow-y-scroll hide-scrollbar w-[320px] overflow-hidden bg-white"
+      className="rounded-2xl max-h-screen overflow-y-scroll hide-scrollbar w-[270px] md:w-[320px] overflow-hidden bg-white"
     >
-      <h3 className="bg-[#BE283C] py-2.5 px-[25px] font-semibold text-white text-xl text-center">
+      <h3 className="bg-[#BE283C] py-2.5 px-[25px] font-semibold text-white text-lg md:text-xl text-center">
         Enquire Now / Apply Now
       </h3>
       <div className="flex flex-col gap-3 py-2.5 px-[25px] w-full">
@@ -183,8 +173,9 @@ const AdmissionForm = () => {
             <select
               {...register("city", { required: "City is required" })}
               defaultValue=""
-              className={`px-1.5 text-[#888] w-full border-b outline-none border-b-[#d8d8d8] h-[38px] text-[13px] ${!selectedCurrentState && "cursor-not-allowed"
-                }`}
+              className={`px-1.5 text-[#888] w-full border-b outline-none border-b-[#d8d8d8] h-[38px] text-[13px] ${
+                !selectedCurrentState && "cursor-not-allowed"
+              }`}
             >
               <option value="" disabled>
                 Select City *
@@ -295,27 +286,7 @@ const AdmissionForm = () => {
               : "hover:bg-[#be283cc7]"
           )}
         >
-          Submit{" "}
-          {isSubmitting && (
-            <svg
-              className="animate-spin h-5 w-5 text-white"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              />
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-              />
-            </svg>
-          )}
+          Submit {isSubmitting && <LoaderSvg />}
         </button>
       </div>
     </form>

@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
-import { EyeCloseSvg, EyeOpenSvg } from "@/public/form/formSvg";
+import { EyeCloseSvg, EyeOpenSvg, LoaderSvg } from "@/public/form/formSvg";
 import submitSignup from "@/api/signup/submitSignup";
 import { useRouter } from "next/navigation";
 
@@ -37,19 +38,18 @@ const AdminRegisterForm = () => {
 
       toast.success(response.message || "Registration successful!");
       router.push("/admin/login");
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Signup Error:", error);
 
       toast.error(
-        error?.message ||
-        error?.response?.data?.message ||
-        "Registration failed."
+        (error as any)?.message ||
+          (error as any)?.response?.data?.message ||
+          "Registration failed."
       );
     } finally {
       setIsSubmitting(false);
     }
   };
-
 
   return (
     <section className="w-full h-screen inline-flex items-center justify-center">
@@ -151,27 +151,19 @@ const AdminRegisterForm = () => {
             )}
           >
             Register
-            {isSubmitting && (
-              <svg
-                className="animate-spin h-5 w-5 inline-block ml-2 text-white"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                />
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                />
-              </svg>
-            )}
+            {isSubmitting && <LoaderSvg />}
           </button>
+
+          {/* Login Link */}
+          <p className="text-center text-[13px] text-[#555] mt-1">
+            Already have an account?{" "}
+            <a
+              href="/admin/login"
+              className="text-[#BE283C] font-semibold hover:underline"
+            >
+              Click here to login
+            </a>
+          </p>
         </div>
       </form>
     </section>
