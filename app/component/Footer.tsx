@@ -1,7 +1,5 @@
 "use client";
 import { ArrowRight, Facebook, Twitter, Youtube, Linkedin, Instagram, AtSign } from 'lucide-react';
-import React from 'react';
-
 export default function Footer() {
     return (
         <>

@@ -9,6 +9,7 @@ export default function DashboardLayout({
 }) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
+
     return (
         <div className="min-h-screen bg-gray-100">
             <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
