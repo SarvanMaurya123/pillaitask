@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+enum State {
+  Maharashtra
+  Karnataka
+  Gujarat
+  Rajasthan
+  TamilNadu
+}
+
+enum Program {
+  Engineering_and_Technology
+  Management_BBA_MBA
+  Computer_Applications_BCA_MCA
+  Science_BSc_MSc
+  Commerce_BCom_MCom
+  Pharmacy
+  Law_BA_LLB_BBA_LLB
+  Design_BDes_MDes
+}
+
+model Admission {
+  id              String   @id @default(cuid())
+  name            String
+  email           String
+  phone           String
+  state           State
+  city            String
+  program         Program
+  course          String
+  agree           Boolean
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  name  String   
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
