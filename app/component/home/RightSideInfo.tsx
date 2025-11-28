@@ -13,7 +13,7 @@ export default function FloatingSidebar() {
       setIsMobile(window.innerWidth <= 768);
     };
 
-    checkScreen(); // run initially
+    checkScreen();
     window.addEventListener("resize", checkScreen);
 
     return () => window.removeEventListener("resize", checkScreen);
@@ -29,7 +29,7 @@ export default function FloatingSidebar() {
     <div className="flex flex-col gap-2 -top-3.5">
       {/* Admission Enquiry  here...*/}
 
-      <div className="flex items-center justify-center fixed right-0 z-50 top-[0%]">
+      <div className="flex items-center justify-center fixed right-0 z-50 md:top-[0%]">
         <a
           href="#admission"
           aria-label="Admission Enquiry"
@@ -48,7 +48,9 @@ export default function FloatingSidebar() {
         </a>
         <div
           className="overflow-hidden transition-all duration-500 ease-in-out"
-          style={{ width: adminssionHover ? "320px" : "0px" }}
+          style={{
+            width: adminssionHover ? (isMobile ? "270px" : "320px") : "0px",
+          }}
           onMouseEnter={() => {
             if (!isMobile) setAdmissionHover(true);
           }}
@@ -64,7 +66,7 @@ export default function FloatingSidebar() {
       <a
         href="#chat"
         aria-label="Chat with Student"
-        className="bg-[#f4b942] text-[#2d3561] px-2 py-3 flex items-center justify-center hover:bg-[#f5c35c]  duration-300 fixed right-0 top-[60%] z-50 shadow-lg rounded-tl-sm rounded-bl-sm  group w-fit"
+        className="bg-[#f4b942] hidden md:flex text-[#2d3561] px-2 py-3 items-center justify-center hover:bg-[#f5c35c]  duration-300 fixed right-0 top-[60%] z-50 shadow-lg rounded-tl-sm rounded-bl-sm  group w-fit"
       >
         <span className="writing-mode-vertical text-sm font-semibold tracking-wider whitespace-nowrap transform rotate-180">
           Chat with Student
@@ -75,13 +77,13 @@ export default function FloatingSidebar() {
       <a
         href="tel:+919876543210"
         aria-label="Call us at +91 98765 43210"
-        className="bg-[#2d3561] text-white p-2 flex items-center justify-center hover:bg-[#3d4571]  duration-300 shadow-lg rounded-tl-sm fixed right-0 top-[86%] z-50  rounded-bl-sm"
+        className="bg-[#2d3561] text-white p-2 flex items-center justify-center hover:bg-[#3d4571]  duration-300 shadow-lg rounded-tl-sm fixed right-0 top-[68%] md:top-[86%] z-50  rounded-bl-sm"
       >
         <Phone className="w-5 h-5" />
       </a>
 
       {/* WhatsApp with Hover Effect here....*/}
-      <div className="fixed right-0 top-[93%] z-50  h-9">
+      <div className="fixed right-0 top-[78%] md:top-[93%] z-50  h-9">
         <a
           href="https://wa.me/919876543210"
           target="_blank"

@@ -9,14 +9,14 @@ export async function middleware(request: NextRequest) {
   const isRegister = pathname === "/admin/register";
   const isAuthRoute = isLogin || isRegister;
 
-  const isProtected = pathname.startsWith("/admin") && !isAuthRoute;
+  const isProtected = pathname.startsWith("/admin/dashboard") && !isAuthRoute;
 
   if (isProtected && !token) {
     return NextResponse.redirect(new URL("/admin/login", request.url));
   }
 
   if (isAuthRoute && token) {
-    return NextResponse.redirect(new URL("/admin", request.url));
+    return NextResponse.redirect(new URL("/admin/dashboard", request.url));
   }
 
   if (token) {
@@ -28,7 +28,11 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  return NextResponse.next();
+  const response = NextResponse.next();
+
+  response.headers.set("x-current-path", pathname);
+
+  return response;
 }
 
 export const config = {
