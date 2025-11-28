@@ -39,7 +39,7 @@ const AdminRegisterForm = () => {
       router.push("/admin/login");
     } catch (error: any) {
       console.error("Signup Error:", error);
- 
+
       toast.error(
         error?.message ||
         error?.response?.data?.message ||
