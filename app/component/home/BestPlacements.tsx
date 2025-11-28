@@ -23,11 +23,11 @@ export default function BestPlacements() {
 
     return (
 
-        <div className="w-full h-screen py-20 bg-white">
+        <div className="w-full md:h-screen py-20 bg-white">
             <div className="bg-white text-center">
                 <h2 className="text-4xl text-center text-black md:text-5xl font-bold
              hover:text-[#DA3948] pb-6">Best Placements</h2>
-                <p className="pb-10 text-2xl text-black">    Top recruiters, unmatched opportunities-your success story begins here.</p>
+                <p className="md:pb-10 pb-5 text-2xl text-black">    Top recruiters, unmatched opportunities-your success story begins here.</p>
             </div>
             <Swiper
                 modules={[Autoplay, Pagination]}
@@ -38,7 +38,7 @@ export default function BestPlacements() {
                     disableOnInteraction: false,
                 }}
                 slidesPerView={1}
-                className="w-full h-full"
+                className=" md:h-full w-full h-70"
             >
                 {slides.map((item) => (
                     <SwiperSlide key={item.id}>

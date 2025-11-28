@@ -27,7 +27,7 @@ export default function HistoryLegacy() {
     ];
 
     return (
-        <div className="relative pt-20 pb-0  text-white overflow-hidden">
+        <div className="relative pt-20 pb-0  bg-[#1d1d1e] text-white overflow-hidden">
             {/* Subtle background pattern */}
             <div className="absolute inset-0 opacity-5">
                 <div className="absolute inset-0" style={{

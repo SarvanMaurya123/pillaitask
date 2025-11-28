@@ -183,9 +183,8 @@ const AdmissionForm = () => {
             <select
               {...register("city", { required: "City is required" })}
               defaultValue=""
-              className={`px-1.5 text-[#888] w-full border-b outline-none border-b-[#d8d8d8] h-[38px] text-[13px] ${
-                !selectedCurrentState && "cursor-not-allowed"
-              }`}
+              className={`px-1.5 text-[#888] w-full border-b outline-none border-b-[#d8d8d8] h-[38px] text-[13px] ${!selectedCurrentState && "cursor-not-allowed"
+                }`}
             >
               <option value="" disabled>
                 Select City *
@@ -290,7 +289,7 @@ const AdmissionForm = () => {
 
         <button
           className={cn(
-            "bg-[#BE283C] border inline-flex items-center gap-2 my-4 text-white border-[#d62832] text-[15px] uppercase font-medium tracking-[0.5px] rounded-[31px] py-[6px] px-[40px] h-[45px] cursor-pointer  transition-colors duration-500 w-fit self-center",
+            "bg-[#BE283C] border inline-flex items-center gap-2 my-4 text-white border-[#d62832] text-[15px] uppercase font-medium tracking-[0.5px] rounded-[31px] py-[6] px-[40] h-[45px] cursor-pointer  transition-colors duration-500 w-fit self-center",
             isSubmitting
               ? "pointer-events-none opacity-50"
               : "hover:bg-[#be283cc7]"

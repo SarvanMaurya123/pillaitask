@@ -37,7 +37,7 @@ export default function Research() {
             <div className="text-black text-center">
                 <h2 className="text-4xl text-center text-black md:text-5xl font-bold hover:text-[#DA3948] pb-8">Research</h2>
                 <p className="text-xl font-semibold pb-4">Pushing the frontiers of knowledge to create real-world impact.</p>
-                <p className="text-lg mx-20 pb-10">MIT-WPU encourages research in practically every domain, and endeavours to develop human knowledge through insight driven investigations, inventions, and understanding to create solutions for critical world problems. Fostering the spirit of curiosity and building world-class research ecosystems.</p>
+                <p className="text-lg md:mx-20 mx-5 text-justify pb-10">MIT-WPU encourages research in practically every domain, and endeavours to develop human knowledge through insight driven investigations, inventions, and understanding to create solutions for critical world problems. Fostering the spirit of curiosity and building world-class research ecosystems.</p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 ">
                     <div>

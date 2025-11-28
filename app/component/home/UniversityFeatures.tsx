@@ -9,7 +9,7 @@ export default function UniversityFeatures() {
             description: "Immerse yourself in an interdisciplinary educational experience with 12 specialised schools, offering over 150 programmes across diverse domains—preparing you to lead in tomorrow's global economy.",
             bgColor: "bg-white"
         },
-        
+
         {
             icon: (isHovered: any) => <BookOpen className={`w-16 h-16 ${isHovered ? 'text-white' : 'text-red-600'} transition-colors duration-500`} strokeWidth={1.5} />,
             title: "Learning Beyond Classrooms",
@@ -46,7 +46,7 @@ export default function UniversityFeatures() {
         <div className="w-full bg-gray-100 py-16 px-4">
             <div className="max-w-7xl mx-auto">
                 <h1 className='text-4xl font-bold text-center text-black hover:text-[#DA3948]'>Why choose MIT-WPU, Pune?</h1>
-                <p className=' text-center mx-30 text-2xl my-10 text-black'>MIT World Peace University, one of the prestigious institutions in India, drives academic excellence and innovation. We shape future leaders who champion the philosophy of global peace through the union of Science and Spirituality.</p>
+                <p className=' text-center md:mx-30 mx-5 text-justify text-2xl my-10 text-black'>MIT World Peace University, one of the prestigious institutions in India, drives academic excellence and innovation. We shape future leaders who champion the philosophy of global peace through the union of Science and Spirituality.</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
                     {features.map((feature, index) => (
                         <div

@@ -125,7 +125,7 @@ export default function HeroSection() {
                     <h2 className="text-4xl text-black text-center">Future-Ready Programmes</h2>
                     <div className="flex items-center mt-4 text-black justify-center gap-6 sm:flex-row flex-col">
                         <div>
-                            <p className="text-2xl">    Discover diverse, new-age programmes designed to shape future leaders.</p>
+                            <p className="text-2xl md:w-full w-90 text-justify">    Discover diverse, new-age programmes designed to shape future leaders.</p>
                         </div>
 
                         <div className="relative">

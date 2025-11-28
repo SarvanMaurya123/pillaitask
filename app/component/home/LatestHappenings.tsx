@@ -47,7 +47,7 @@ export default function LatestHappenings() {
                     <h1 className="text-5xl md:text-5xl font-black text-gray-900 mb-4">
                         Latest Happenings
                     </h1>
-                    <p className="text-lg md:text-xl text-gray-700">
+                    <p className="text-lg md:text-xl  text-gray-700">
                         From intellectual debates to electrifying fests - there's never a dull moment!
                     </p>
                 </div>
