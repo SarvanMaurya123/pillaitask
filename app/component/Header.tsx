@@ -19,7 +19,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className={`fixed top-0 left-0 w-full text-white z-50 transition-all duration-300 ${scrolled ? 'bg-black/70 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+            <nav className={`fixed top-0 left-0 w-full text-white/30 z-50 transition-all duration-300 ${scrolled ? 'bg-black/70 backdrop-blur-sm shadow-lg' : 'bg-transparent'
                 }`}>
                 <div className="px-4 py-2">
                     <div className="flex items-center justify-between">

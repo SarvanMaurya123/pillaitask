@@ -5,6 +5,8 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { EyeCloseSvg, EyeOpenSvg } from "@/public/form/formSvg";
+import submitLogin from "@/api/login/submitLogin";
+import { useRouter } from "next/navigation";
 
 interface LoginFormType {
   email: string;
@@ -20,12 +22,14 @@ const AdminLoginForm = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
+  const router = useRouter();
   const onSubmit: SubmitHandler<LoginFormType> = async (data) => {
     try {
       setIsSubmitting(true);
       console.log("Login form submitted:", data);
-      toast.success("Logged in successfully!");
+      const res = await submitLogin(data);
+      toast.success(res.message || "Logged in successfully!");
+      router.push("/dashboard");
     } catch (error) {
       toast.error("Login failed. Try again.");
     } finally {
@@ -85,7 +89,7 @@ const AdminLoginForm = () => {
           {/* Submit Button */}
           <button
             className={cn(
-              "bg-[#BE283C] border text-white border-[#d62832] text-[15px] uppercase font-medium rounded-[31px] py-[6px] px-[40px] h-[45px] cursor-pointer  transition duration-300 w-fit self-center mt-3",
+              "bg-[#BE283C] border text-white border-[#d62832] text-[15px] uppercase font-medium rounded-[31px] py-[6] px-[40] h-[45px] cursor-pointer  transition duration-300 w-fit self-center mt-3",
               isSubmitting
                 ? "cursor-not-allowed opacity-60"
                 : "hover:bg-[#be283cc7]"

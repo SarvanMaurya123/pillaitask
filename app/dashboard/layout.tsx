@@ -1,21 +1,25 @@
 'use client';
 
-import Dashboard from "../component/dashboard/Sidebar";
+import React, { useState } from 'react';
+import Sidebar from '../component/dashboard/Sidebar';
 export default function DashboardLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     return (
-        <div className="min-h-screen flex bg-gray-100">
-
-            < Dashboard />
+        <div className="min-h-screen bg-gray-100">
+            <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
 
             {/* Main Content */}
-            <main className="flex-1 md:ml-64 p-6">
-                {children}
-            </main>
+            <div className="lg:ml-64 min-h-screen">
+
+
+                {/* Dashboard Content */}
+                <main>{children}</main>
+            </div>
         </div>
     );
 }
