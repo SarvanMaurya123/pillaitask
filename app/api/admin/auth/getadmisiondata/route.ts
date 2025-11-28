@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
     try {
         const enquiries = await prisma.admission.findMany({
-            orderBy: { createdAt: "desc" }, // optional: newest first
+            orderBy: { createdAt: "desc" },
         });
 
         return NextResponse.json(

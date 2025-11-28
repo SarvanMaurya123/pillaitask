@@ -1,6 +1,6 @@
 # PillaiTask - Next.js Admin Dashboard & Admission Enquiry System
 
-This is a **Next.js 14+** project with **Prisma**, **Supabase**, and **TailwindCSS**, featuring an **admin dashboard**, **admission enquiry management**, and **user management**.  
+This is a **Next.js 16** project with **Prisma**, **Supabase**, and **TailwindCSS**, featuring an **admin dashboard**, **admission enquiry management**, and **user management**.  
 
 The project is bootstrapped using [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
@@ -33,3 +33,4 @@ Clone the repository:
 ```bash
 git clone https://github.com/SarvanMaurya123/pillaitask.git
 cd pillaitask
+
