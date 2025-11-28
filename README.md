@@ -116,7 +116,7 @@ The project is bootstrapped using [`create-next-app`](https://nextjs.org/docs/ap
 ## Prerequisites
 
 - Node.js v18+  
-- npm / yarn / pnpm / bun  
+- npm   
 - Git  
 - PostgreSQL/supabase (or Neon) database  
 
